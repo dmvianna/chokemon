@@ -11,7 +11,7 @@
   ==
 ::  and the state is a json list
 +$  state-0
-  $:  [%0 values=(map @t json)]
+  $:  [%0 values=(map @tas json)]
   ==
 +$  card  card:agent:gall
 --
@@ -26,7 +26,7 @@
 ++  on-init
   ^-  [(list card) _this]
   ~&  >  '%chokemon initialised successfully'
-  =.  state  [%0 *(map @t json)]
+  =.  state  [%0 *(map @tas json)]
   `this
 ++  on-save  !>(state)
 ++  on-load
@@ -47,7 +47,16 @@
     ?+    q.vase  (on-poke:def mark vase)
         term
         ~&  vase
-        [~[[%pass /al %arvo %k %fard %chokemon %pokedex %noun !>([bowl vase])]] this]
+        :_  this
+        :~
+          :*  %pass  /chokemon-msg  %arvo  %k  %fard
+              %chokemon  %pokedex  %noun
+              !>  :*
+                bowl
+                q.vase
+              ==
+           ==
+        ==
     ==
   ==
 
@@ -60,15 +69,16 @@
   |=  [=wire =sign-arvo]
   ^-  [(list card) _this]
   ?+  wire  (on-arvo:def wire sign-arvo)
-    ~  :: Is this a well formed pokemon name?
+    [%chokemon-msg ~]  :: Is this a well formed pokemon name?
       ~&  "Unknown pokemon."
+      ~&  wire
         [~ this]
-    [@t @]  :: Add to state and return json.
+    [%chokemon-msg @tas]  :: Add to state and return json.
       ~&  "We got something!"
       ~&  wire
       =/  info  t.wire
       =/  name  i.wire
-      ~&  `@t`name  ::  "{name} exists!"
+      ~&  `@tas`name  ::  "{name} exists!"
       :_  this  ~  :: (~(put by values.state) [name info])
   ==
 ++  on-fail  on-fail:def
