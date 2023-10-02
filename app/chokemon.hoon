@@ -50,11 +50,10 @@
         :_  this
         :~
           :*  %pass  /chokemon-msg  %arvo  %k  %fard
-              %chokemon  %pokedex  %noun
-              !>  :*
-                bowl
+              q.byk.bowl
+              %pokedex  %noun
+              !>
                 q.vase
-              ==
            ==
         ==
     ==
@@ -66,13 +65,14 @@
 ++  on-peek   on-peek:def
 ++  on-agent  on-agent:def
 ++  on-arvo
-  |=  [=wire =sign-arvo]
+  |=  [=wire sign=sign-arvo]
   ^-  [(list card) _this]
-  ?+  wire  (on-arvo:def wire sign-arvo)
-    [%chokemon-msg ~]  :: Is this a well formed pokemon name?
-      ~&  "We got a chokemon-msg!"
-      ~&  sign-arvo
-      :_  this  ~  :: (~(put by values.state) [name info])
-  ==
+  ?>  ?=([%chokemon-msg ~] wire)
+  ?>  ?=([%khan %arow *] sign)
+  ?:  ?=(%.n -.p.sign)
+    ((slog leaf+<p.p.sign> ~) `this)
+  ((slog !<(@t q.p.p.sign) ~) `this)
+  :: (~(put by values.state) [name info])
+
 ++  on-fail  on-fail:def
 --
