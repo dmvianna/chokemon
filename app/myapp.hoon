@@ -9,7 +9,7 @@
   |=  [=mark =vase]
   ^-  (quip card:agent:gall _this)
   ?>  ?=(%noun mark)
-  =+  !<(succeed=? vase)
+  =+  !<(succeed=@ vase)
   :_  this
   [%pass /result %arvo %k %fard q.byk.bowl %mythread %noun !>(succeed)]~
 ::
