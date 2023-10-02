@@ -47,45 +47,29 @@
     ?+    q.vase  (on-poke:def mark vase)
         term
         ~&  vase
-        =/  tid  `@ta`(cat 3 'thread_' (scot %uv (sham eny.bowl)))
-        =/  ta-now  `@ta`(scot %da now.bowl)
-        =/  start-args  [~ `tid byk.bowl(r da+now.bowl) %pokedex !>(`q.vase)]
-        :_  this
-        :~  [%pass /thread/[ta-now] %agent [our.bowl %spider] %watch /thread-result/[tid]]
-            [%pass /thread/[ta-now] %agent [our.bowl %spider] %poke %spider-start !>(start-args)]
-            ==
-         ==
+        [~[[%pass /al %arvo %k %fard %chokemon %pokedex %noun !>([bowl vase])]] this]
+    ==
   ==
 
 ::
 ++  on-watch  on-watch:def
 ++  on-leave  on-leave:def
 ++  on-peek   on-peek:def
-++  on-agent
-   |=  [=wire =sign:agent:gall]
-   ^-  (quip card _this)
-   ?+    -.wire  (on-agent:def wire sign)
-       %thread
-     ?+    -.sign  (on-agent:def wire sign)
-         %poke-ack
-       ?~  p.sign
-         %-  (slog leaf+"Thread started successfully" ~)
-         `this
-       %-  (slog leaf+"Thread failed to start" u.p.sign)
-       `this
-     ::
-         %fact
-       ?+    p.cage.sign  (on-agent:def wire sign)
-           %thread-fail
-         =/  err  !<  (pair term tang)  q.cage.sign
-         %-  (slog leaf+"Thread failed: {(trip p.err)}" q.err)
-         `this
-           %thread-done
-        ~&  !<(=json q.cage.sign)
-         `this
-       ==
-     ==
-   ==
-++  on-arvo   on-agent:def
+++  on-agent  on-agent:def
+++  on-arvo
+  |=  [=wire =sign-arvo]
+  ^-  [(list card) _this]
+  ?+  wire  (on-arvo:def wire sign-arvo)
+    ~  :: Is this a well formed pokemon name?
+      ~&  "Unknown pokemon."
+        [~ this]
+    [@t @]  :: Add to state and return json.
+      ~&  "We got something!"
+      ~&  wire
+      =/  info  t.wire
+      =/  name  i.wire
+      ~&  `@t`name  ::  "{name} exists!"
+      :_  this  ~  :: (~(put by values.state) [name info])
+  ==
 ++  on-fail  on-fail:def
 --
