@@ -70,15 +70,8 @@
   ^-  [(list card) _this]
   ?+  wire  (on-arvo:def wire sign-arvo)
     [%chokemon-msg ~]  :: Is this a well formed pokemon name?
-      ~&  "Unknown pokemon."
-      ~&  wire
-        [~ this]
-    [%chokemon-msg @tas]  :: Add to state and return json.
-      ~&  "We got something!"
-      ~&  wire
-      =/  info  t.wire
-      =/  name  i.wire
-      ~&  `@tas`name  ::  "{name} exists!"
+      ~&  "We got a chokemon-msg!"
+      ~&  sign-arvo
       :_  this  ~  :: (~(put by values.state) [name info])
   ==
 ++  on-fail  on-fail:def

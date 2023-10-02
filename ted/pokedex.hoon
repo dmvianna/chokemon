@@ -12,5 +12,4 @@
 =/  base-url  "https://pokeapi.co/api/v2/pokemon/"
 =/  url  (weld base-url (cass (trip arg)))
 ;<  info=json  bind:m  (fetch-json:strandio url)
-;<  ~          bind:m  (poke-our:strandio %chokemon [%dex !>([arg info])])
-(pure:m !>(arg))
+(pure:m !>([arg info]))
