@@ -8,4 +8,3 @@
 ?.  !<(? arg)
   (strand-fail %i-have-failed 'foo' 'bar' 'baz' ~)
 (pure:m !>('success!!!'))
-p
