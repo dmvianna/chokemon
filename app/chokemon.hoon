@@ -1,5 +1,7 @@
 :: Chokemon
 ::
+::  /app/chokemon.hoon
+::
 :::: A pokemon API client, with caching.
   ::
 /-  *chokemon
