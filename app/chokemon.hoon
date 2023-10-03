@@ -44,8 +44,8 @@
   ?>  ?=(%noun mark)
   =+  !<(name=@t vase)
   :_  this
-  [%pass /chokemon-msg %arvo %k %fard q.byk.bowl %poke-choke %noun !>(name)]~
-::
+  [%pass /chokemon-msg %arvo %k %fard q.byk.bowl %poke-choke %noun !>([~ name])]~
+  ::
 ++  on-watch  on-watch:def
 ++  on-leave  on-leave:def
 ++  on-peek   on-peek:def
