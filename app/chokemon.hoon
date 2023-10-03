@@ -44,12 +44,13 @@
   ?>  ?=(%noun mark)
   =+  !<(name=@tas vase)
   :: Check if we already know this name
-  =/  known  (~(dig by values) name)
+  =/  known  (~(get by values) name)
   ?~  known
     :: No we don't. Try to fetch it via thread.
     :_  this
       [%pass /chokemon-msg %arvo %k %fard q.byk.bowl %poke-choke %noun !>([~ name])]~
     :: Yes we do. Just return it.
+    ~&  known
     ~&  "we already have {<name>}"
     `this
 ++  on-watch  on-watch:def
@@ -64,6 +65,7 @@
   ?:  ?=(%.n -.p.sign)
     ((slog leaf+<p.p.sign> ~) `this)
   =+  !<([name=@tas info=json] q.p.p.sign)
+  ~&  info
   ~&  "got new {<name>}"
   `this(values (~(put by values) name info))
 ++  on-fail  on-fail:def
