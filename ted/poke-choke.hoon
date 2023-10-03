@@ -8,8 +8,8 @@
 |=  arg=vase
 =/  m  (strand ,vase)
 ^-  form:m
-=+  !<([~ argt=@t] arg)
+=+  !<([~ name=@tas] arg)
 =/  base-url  "https://pokeapi.co/api/v2/pokemon/"
-=/  url  (weld base-url (cass (trip argt)))
+=/  url  (weld base-url (cass (trip name)))
 ;<  info=json  bind:m  (fetch-json:strandio url)
-(pure:m !>(argt))
+(pure:m !>([name=name info=info]))

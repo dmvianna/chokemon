@@ -42,7 +42,7 @@
   ^-  [(list card) _this]
   ::  check that this is a noun, else crash
   ?>  ?=(%noun mark)
-  =+  !<(name=@t vase)
+  =+  !<(name=@tas vase)
   :_  this
   [%pass /chokemon-msg %arvo %k %fard q.byk.bowl %poke-choke %noun !>([~ name])]~
   ::
@@ -55,11 +55,12 @@
   ^-  [(list card) _this]
   ?>  ?=([%chokemon-msg ~] wire)
   ?>  ?=([%khan %arow *] sign)
-  ~&  sign
   ?:  ?=(%.n -.p.sign)
     ((slog leaf+<p.p.sign> ~) `this)
-  ((slog !<(@t q.p.p.sign) ~) `this)
-  :: (~(put by values.state) [name info])
+  =+  !<([name=@tas info=json] q.p.p.sign)
+  ~&  info
+  ~&  name
+  `this(values (~(put by values) name info))
 
 ++  on-fail  on-fail:def
 --
