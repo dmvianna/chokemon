@@ -50,7 +50,7 @@
     :_  this
       [%pass /chokemon-msg %arvo %k %fard q.byk.bowl %poke-choke %noun !>([~ name])]~
     :: Yes we do. Just return it.
-    ~&  'we already have {<name>}'
+    ~&  "we already have {<name>}"
     `this
 ++  on-watch  on-watch:def
 ++  on-leave  on-leave:def
@@ -64,7 +64,7 @@
   ?:  ?=(%.n -.p.sign)
     ((slog leaf+<p.p.sign> ~) `this)
   =+  !<([name=@tas info=json] q.p.p.sign)
-  ~&  'got new {<name>}'
+  ~&  "got new {<name>}"
   `this(values (~(put by values) name info))
 ++  on-fail  on-fail:def
 --
