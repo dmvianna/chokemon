@@ -41,24 +41,10 @@
   |=  [=mark =vase]
   ^-  [(list card) _this]
   ::  check that this is a noun, else crash
-  ?+    mark  (on-poke:def mark vase)
-      %noun
-    ::  check that this is a term
-    ?+    q.vase  (on-poke:def mark vase)
-        term
-        ~&  vase
-        :_  this
-        :~
-          :*  %pass  /chokemon-msg  %arvo  %k  %fard
-              q.byk.bowl
-              %pokedex  %noun
-              !>
-                q.vase
-           ==
-        ==
-    ==
-  ==
-
+  ?>  ?=(%noun mark)
+  =+  !<(name=@t vase)
+  :_  this
+  [%pass /chokemon-msg %arvo %k %fard q.byk.bowl %poke-choke %noun !>(name)]~
 ::
 ++  on-watch  on-watch:def
 ++  on-leave  on-leave:def
@@ -69,6 +55,7 @@
   ^-  [(list card) _this]
   ?>  ?=([%chokemon-msg ~] wire)
   ?>  ?=([%khan %arow *] sign)
+  ~&  sign
   ?:  ?=(%.n -.p.sign)
     ((slog leaf+<p.p.sign> ~) `this)
   ((slog !<(@t q.p.p.sign) ~) `this)
