@@ -18,6 +18,7 @@
   ^-  (quip card:agent:gall _this)
   ?>  ?=([%result ~] wire)
   ?>  ?=([%khan %arow *] sign)
+  ~&  sign
   ?:  ?=(%.n -.p.sign)
     ((slog leaf+<p.p.sign> ~) `this)
   ((slog !<(@t q.p.p.sign) ~) `this)
